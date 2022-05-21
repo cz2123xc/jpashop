@@ -35,7 +35,7 @@ public abstract class Item {
      * 재고를 증가시키는 메서드
      * @param quantity
      */
-    public void addStork(int quantity){
+    public void addStock(int quantity){
         this.stockQuantity += quantity;
     }
 
