@@ -27,7 +27,6 @@ public class ItemController {
 
     @PostMapping("/items/new")
     public String create(BookForm form) {
-
         Book book = new Book();
         book.setName(form.getName());
         book.setPrice(form.getPrice());
@@ -63,17 +62,20 @@ public class ItemController {
     }
 
     @PostMapping("items/{itemId}/edit")
-    public String updateItem(@ModelAttribute("form") BookForm form, @PathVariable String itemId) {
+    public String updateItem(@ModelAttribute("form") BookForm form, @PathVariable Long itemId) {
 
-        Book book = new Book();
-        book.setId(form.getId());
-        book.setName(form.getName());
-        book.setPrice(form.getPrice());
-        book.setStockQuantity(form.getStockQuantity());
-        book.setAuthor(form.getAuthor());
-        book.setIsbn(form.getIsbn());
+//        Book book = new Book();
+//        book.setId(form.getId());
+//        book.setName(form.getName());
+//        book.setPrice(form.getPrice());
+//        book.setStockQuantity(form.getStockQuantity());
+//        book.setAuthor(form.getAuthor());
+//        book.setIsbn(form.getIsbn());
+//
+//        itemService.saveItem(book);
 
-        itemService.saveItem(book);
+        itemService.updateItem(itemId, form.getName(), form.getPrice(), form.getStockQuantity()); // or DTO 를 만들어서 사용해도 된다
+
         return "redirect:/";
     }
 

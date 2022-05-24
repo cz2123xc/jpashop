@@ -1,6 +1,7 @@
 package jpabook.jpashop.service;
 
 import jpabook.jpashop.Repository.ItemRepository;
+import jpabook.jpashop.domain.item.Book;
 import jpabook.jpashop.domain.item.Item;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,16 @@ public class ItemService {
     public void saveItem(Item item) {
         itemRepository.save(item);
     }
+
+    @Transactional
+    public Item updateItem(Long itemId, String name, int price, int stockQuantity) { // 준영속 상태의 엔티티를 받아서 영속성 엔티티가 변경을 감지해서 자동으로 업데이트 되는게 래퍼런스이다
+        Item findItem = itemRepository.findOne(itemId); // 엔티티로 부터 가져온 영속성 컨텍스트 이므로 자동으로 업데이트 된다 (트랜잭션에 의해 자동 커밋되어 flush 된다)
+        findItem.setPrice(price);
+        findItem.setName(name);
+        findItem.setStockQuantity(stockQuantity);
+        return findItem;
+    }
+
 
     public List<Item> findItems() {
         return itemRepository.findAll();
