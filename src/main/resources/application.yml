@@ -21,7 +21,7 @@ logging:
     org.hibernate.type: trace # 타입을 로그로 출력 쿼리에 들어간 파라미터를 출력
 
 server:
-  port: 8081
+  port: 8080
 
 
 
