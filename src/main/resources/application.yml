@@ -8,7 +8,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create # 실행 시점에 모든 디비 지우고 다시 생성
+      ddl-auto: none # 실행 시점에 모든 디비 지우고 다시 생성
     properties:
       hibernate:
         #show_sql: true
