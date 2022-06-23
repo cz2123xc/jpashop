@@ -11,7 +11,4 @@ public class OrderSearch {
     private String memberName; // 회원명
     private OrderStatus orderStatus; // ORDER, CANCEL
 
-
-
-
 }
