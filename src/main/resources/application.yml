@@ -12,14 +12,13 @@ spring:
     properties:
       hibernate:
         #show_sql: true
+        default_batch_fetch_size: 1000 # (최적화) 어차피 다 가져올 것이므로 한계 개수인 1000개 설정함
         format_sql: true
-        default_batch_fetch_size: 1000 #최적화 옵션
-
 
 logging:
   level:
     org.hibernate.SQL: debug # SQL 쿼리를 로그로 출력
-    org.hibernate.type: trace # 타입을 로그로 출력 쿼리에 들어간 파라미터를 출력
+#    org.hibernate.type: trace # 타입을 로그로 출력 쿼리에 들어간 파라미터를 출력
 
 
 server:
