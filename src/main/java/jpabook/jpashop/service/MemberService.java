@@ -44,13 +44,13 @@ public class MemberService {
     // 회원 하나만 조회
     @Transactional(readOnly = true) // 검색 쿼리는 리드온니 읽기전용으로 설정해준다.(성능 최적화)
     public Member findOne(Long memberId) {
-        return memberRepository.findOne(memberId);
+        return memberRepository.findById(memberId).get();
     }
 
 
     @Transactional
     public void update(Long id, String name) {
-        Member member = memberRepository.findOne(id);
+        Member member = memberRepository.findById(id).get();
         member.setName(name);
     }
 }

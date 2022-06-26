@@ -27,7 +27,7 @@ public class OrderService {
     @Transactional // 왠만하면 로직응 영속성 적용이 되는 트랜잭션 안에서 하는게 좋다
     public Long order(Long memberId, Long itemId, int count) {
         // 엔티티 조회
-        Member member = memberRepository.findOne(memberId);
+        Member member = memberRepository.findById(memberId).get();
         Item item = itemRepository.findOne(itemId);
 
         // 배송정보 생성
